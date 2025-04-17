@@ -50,7 +50,5 @@ int main(int argc, char  *argv[])
         //处理ROS回调，这里暂无应用
         ros::spinOnce();
     }
-
-
     return 0;
 }
