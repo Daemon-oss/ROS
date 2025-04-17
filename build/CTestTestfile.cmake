@@ -1,0 +1,10 @@
+# CMake generated Testfile for 
+# Source directory: /home/wex/ros_ws/src
+# Build directory: /home/wex/ros_ws/build
+# 
+# This file includes the relevant testing commands required for 
+# testing this directory and lists subdirectories to be tested as well.
+subdirs("gtest")
+subdirs("demo1")
+subdirs("demo2")
+subdirs("demo3")
