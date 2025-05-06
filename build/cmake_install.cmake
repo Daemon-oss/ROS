@@ -133,7 +133,9 @@ if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   include("/home/wex/ros_ws/build/gtest/cmake_install.cmake")
   include("/home/wex/ros_ws/build/demo1/cmake_install.cmake")
   include("/home/wex/ros_ws/build/demo2/cmake_install.cmake")
+  include("/home/wex/ros_ws/build/demo4/cmake_install.cmake")
   include("/home/wex/ros_ws/build/demo3/cmake_install.cmake")
+  include("/home/wex/ros_ws/build/URDF/cmake_install.cmake")
 
 endif()
 

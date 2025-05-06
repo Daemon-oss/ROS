@@ -1,0 +1,8 @@
+prefix=/home/wex/ros_ws/install
+
+Name: URDF
+Description: Description of URDF
+Version: 0.0.0
+Cflags: 
+Libs: -L${prefix}/lib 
+Requires: 

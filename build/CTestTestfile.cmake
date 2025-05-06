@@ -7,4 +7,6 @@
 subdirs("gtest")
 subdirs("demo1")
 subdirs("demo2")
+subdirs("demo4")
 subdirs("demo3")
+subdirs("URDF")

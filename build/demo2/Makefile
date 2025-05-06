@@ -68,17 +68,48 @@ install/strip/fast: preinstall/fast
 	/usr/bin/cmake -DCMAKE_INSTALL_DO_STRIP=1 -P cmake_install.cmake
 .PHONY : install/strip/fast
 
-# Special rule for the target install/local
-install/local: preinstall
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Installing only the local directory..."
-	/usr/bin/cmake -DCMAKE_INSTALL_LOCAL_ONLY=1 -P cmake_install.cmake
-.PHONY : install/local
+# Special rule for the target test
+test:
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running tests..."
+	/usr/bin/ctest --force-new-ctest-process $(ARGS)
+.PHONY : test
 
-# Special rule for the target install/local
-install/local/fast: preinstall/fast
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Installing only the local directory..."
-	/usr/bin/cmake -DCMAKE_INSTALL_LOCAL_ONLY=1 -P cmake_install.cmake
-.PHONY : install/local/fast
+# Special rule for the target test
+test/fast: test
+
+.PHONY : test/fast
+
+# Special rule for the target edit_cache
+edit_cache:
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "No interactive CMake dialog available..."
+	/usr/bin/cmake -E echo No\ interactive\ CMake\ dialog\ available.
+.PHONY : edit_cache
+
+# Special rule for the target edit_cache
+edit_cache/fast: edit_cache
+
+.PHONY : edit_cache/fast
+
+# Special rule for the target rebuild_cache
+rebuild_cache:
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running CMake to regenerate build system..."
+	/usr/bin/cmake -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR)
+.PHONY : rebuild_cache
+
+# Special rule for the target rebuild_cache
+rebuild_cache/fast: rebuild_cache
+
+.PHONY : rebuild_cache/fast
+
+# Special rule for the target list_install_components
+list_install_components:
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Available install components are: \"Unspecified\""
+.PHONY : list_install_components
+
+# Special rule for the target list_install_components
+list_install_components/fast: list_install_components
+
+.PHONY : list_install_components/fast
 
 # Special rule for the target install
 install: preinstall
@@ -92,48 +123,17 @@ install/fast: preinstall/fast
 	/usr/bin/cmake -P cmake_install.cmake
 .PHONY : install/fast
 
-# Special rule for the target list_install_components
-list_install_components:
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Available install components are: \"Unspecified\""
-.PHONY : list_install_components
+# Special rule for the target install/local
+install/local: preinstall
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Installing only the local directory..."
+	/usr/bin/cmake -DCMAKE_INSTALL_LOCAL_ONLY=1 -P cmake_install.cmake
+.PHONY : install/local
 
-# Special rule for the target list_install_components
-list_install_components/fast: list_install_components
-
-.PHONY : list_install_components/fast
-
-# Special rule for the target rebuild_cache
-rebuild_cache:
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running CMake to regenerate build system..."
-	/usr/bin/cmake -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR)
-.PHONY : rebuild_cache
-
-# Special rule for the target rebuild_cache
-rebuild_cache/fast: rebuild_cache
-
-.PHONY : rebuild_cache/fast
-
-# Special rule for the target edit_cache
-edit_cache:
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "No interactive CMake dialog available..."
-	/usr/bin/cmake -E echo No\ interactive\ CMake\ dialog\ available.
-.PHONY : edit_cache
-
-# Special rule for the target edit_cache
-edit_cache/fast: edit_cache
-
-.PHONY : edit_cache/fast
-
-# Special rule for the target test
-test:
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running tests..."
-	/usr/bin/ctest --force-new-ctest-process $(ARGS)
-.PHONY : test
-
-# Special rule for the target test
-test/fast: test
-
-.PHONY : test/fast
+# Special rule for the target install/local
+install/local/fast: preinstall/fast
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Installing only the local directory..."
+	/usr/bin/cmake -DCMAKE_INSTALL_LOCAL_ONLY=1 -P cmake_install.cmake
+.PHONY : install/local/fast
 
 # The main all target
 all: cmake_check_build_system
@@ -168,6 +168,36 @@ depend:
 .PHONY : depend
 
 # Convenience name for target.
+demo2/CMakeFiles/geometry_msgs_generate_messages_py.dir/rule:
+	cd /home/wex/ros_ws/build && $(MAKE) -f CMakeFiles/Makefile2 demo2/CMakeFiles/geometry_msgs_generate_messages_py.dir/rule
+.PHONY : demo2/CMakeFiles/geometry_msgs_generate_messages_py.dir/rule
+
+# Convenience name for target.
+geometry_msgs_generate_messages_py: demo2/CMakeFiles/geometry_msgs_generate_messages_py.dir/rule
+
+.PHONY : geometry_msgs_generate_messages_py
+
+# fast build rule for target.
+geometry_msgs_generate_messages_py/fast:
+	cd /home/wex/ros_ws/build && $(MAKE) -f demo2/CMakeFiles/geometry_msgs_generate_messages_py.dir/build.make demo2/CMakeFiles/geometry_msgs_generate_messages_py.dir/build
+.PHONY : geometry_msgs_generate_messages_py/fast
+
+# Convenience name for target.
+demo2/CMakeFiles/geometry_msgs_generate_messages_cpp.dir/rule:
+	cd /home/wex/ros_ws/build && $(MAKE) -f CMakeFiles/Makefile2 demo2/CMakeFiles/geometry_msgs_generate_messages_cpp.dir/rule
+.PHONY : demo2/CMakeFiles/geometry_msgs_generate_messages_cpp.dir/rule
+
+# Convenience name for target.
+geometry_msgs_generate_messages_cpp: demo2/CMakeFiles/geometry_msgs_generate_messages_cpp.dir/rule
+
+.PHONY : geometry_msgs_generate_messages_cpp
+
+# fast build rule for target.
+geometry_msgs_generate_messages_cpp/fast:
+	cd /home/wex/ros_ws/build && $(MAKE) -f demo2/CMakeFiles/geometry_msgs_generate_messages_cpp.dir/build.make demo2/CMakeFiles/geometry_msgs_generate_messages_cpp.dir/build
+.PHONY : geometry_msgs_generate_messages_cpp/fast
+
+# Convenience name for target.
 demo2/CMakeFiles/geometry_msgs_generate_messages_nodejs.dir/rule:
 	cd /home/wex/ros_ws/build && $(MAKE) -f CMakeFiles/Makefile2 demo2/CMakeFiles/geometry_msgs_generate_messages_nodejs.dir/rule
 .PHONY : demo2/CMakeFiles/geometry_msgs_generate_messages_nodejs.dir/rule
@@ -183,6 +213,21 @@ geometry_msgs_generate_messages_nodejs/fast:
 .PHONY : geometry_msgs_generate_messages_nodejs/fast
 
 # Convenience name for target.
+demo2/CMakeFiles/console.dir/rule:
+	cd /home/wex/ros_ws/build && $(MAKE) -f CMakeFiles/Makefile2 demo2/CMakeFiles/console.dir/rule
+.PHONY : demo2/CMakeFiles/console.dir/rule
+
+# Convenience name for target.
+console: demo2/CMakeFiles/console.dir/rule
+
+.PHONY : console
+
+# fast build rule for target.
+console/fast:
+	cd /home/wex/ros_ws/build && $(MAKE) -f demo2/CMakeFiles/console.dir/build.make demo2/CMakeFiles/console.dir/build
+.PHONY : console/fast
+
+# Convenience name for target.
 demo2/CMakeFiles/pub_twist.dir/rule:
 	cd /home/wex/ros_ws/build && $(MAKE) -f CMakeFiles/Makefile2 demo2/CMakeFiles/pub_twist.dir/rule
 .PHONY : demo2/CMakeFiles/pub_twist.dir/rule
@@ -196,21 +241,6 @@ pub_twist: demo2/CMakeFiles/pub_twist.dir/rule
 pub_twist/fast:
 	cd /home/wex/ros_ws/build && $(MAKE) -f demo2/CMakeFiles/pub_twist.dir/build.make demo2/CMakeFiles/pub_twist.dir/build
 .PHONY : pub_twist/fast
-
-# Convenience name for target.
-demo2/CMakeFiles/geometry_msgs_generate_messages_py.dir/rule:
-	cd /home/wex/ros_ws/build && $(MAKE) -f CMakeFiles/Makefile2 demo2/CMakeFiles/geometry_msgs_generate_messages_py.dir/rule
-.PHONY : demo2/CMakeFiles/geometry_msgs_generate_messages_py.dir/rule
-
-# Convenience name for target.
-geometry_msgs_generate_messages_py: demo2/CMakeFiles/geometry_msgs_generate_messages_py.dir/rule
-
-.PHONY : geometry_msgs_generate_messages_py
-
-# fast build rule for target.
-geometry_msgs_generate_messages_py/fast:
-	cd /home/wex/ros_ws/build && $(MAKE) -f demo2/CMakeFiles/geometry_msgs_generate_messages_py.dir/build.make demo2/CMakeFiles/geometry_msgs_generate_messages_py.dir/build
-.PHONY : geometry_msgs_generate_messages_py/fast
 
 # Convenience name for target.
 demo2/CMakeFiles/geometry_msgs_generate_messages_lisp.dir/rule:
@@ -242,20 +272,32 @@ geometry_msgs_generate_messages_eus/fast:
 	cd /home/wex/ros_ws/build && $(MAKE) -f demo2/CMakeFiles/geometry_msgs_generate_messages_eus.dir/build.make demo2/CMakeFiles/geometry_msgs_generate_messages_eus.dir/build
 .PHONY : geometry_msgs_generate_messages_eus/fast
 
-# Convenience name for target.
-demo2/CMakeFiles/geometry_msgs_generate_messages_cpp.dir/rule:
-	cd /home/wex/ros_ws/build && $(MAKE) -f CMakeFiles/Makefile2 demo2/CMakeFiles/geometry_msgs_generate_messages_cpp.dir/rule
-.PHONY : demo2/CMakeFiles/geometry_msgs_generate_messages_cpp.dir/rule
+src/console.o: src/console.cpp.o
 
-# Convenience name for target.
-geometry_msgs_generate_messages_cpp: demo2/CMakeFiles/geometry_msgs_generate_messages_cpp.dir/rule
+.PHONY : src/console.o
 
-.PHONY : geometry_msgs_generate_messages_cpp
+# target to build an object file
+src/console.cpp.o:
+	cd /home/wex/ros_ws/build && $(MAKE) -f demo2/CMakeFiles/console.dir/build.make demo2/CMakeFiles/console.dir/src/console.cpp.o
+.PHONY : src/console.cpp.o
 
-# fast build rule for target.
-geometry_msgs_generate_messages_cpp/fast:
-	cd /home/wex/ros_ws/build && $(MAKE) -f demo2/CMakeFiles/geometry_msgs_generate_messages_cpp.dir/build.make demo2/CMakeFiles/geometry_msgs_generate_messages_cpp.dir/build
-.PHONY : geometry_msgs_generate_messages_cpp/fast
+src/console.i: src/console.cpp.i
+
+.PHONY : src/console.i
+
+# target to preprocess a source file
+src/console.cpp.i:
+	cd /home/wex/ros_ws/build && $(MAKE) -f demo2/CMakeFiles/console.dir/build.make demo2/CMakeFiles/console.dir/src/console.cpp.i
+.PHONY : src/console.cpp.i
+
+src/console.s: src/console.cpp.s
+
+.PHONY : src/console.s
+
+# target to generate assembly for a file
+src/console.cpp.s:
+	cd /home/wex/ros_ws/build && $(MAKE) -f demo2/CMakeFiles/console.dir/build.make demo2/CMakeFiles/console.dir/src/console.cpp.s
+.PHONY : src/console.cpp.s
 
 src/pub_twist.o: src/pub_twist.cpp.o
 
@@ -291,18 +333,22 @@ help:
 	@echo "... clean"
 	@echo "... depend"
 	@echo "... install/strip"
-	@echo "... install/local"
-	@echo "... install"
-	@echo "... list_install_components"
-	@echo "... rebuild_cache"
-	@echo "... edit_cache"
-	@echo "... test"
-	@echo "... geometry_msgs_generate_messages_nodejs"
-	@echo "... pub_twist"
 	@echo "... geometry_msgs_generate_messages_py"
-	@echo "... geometry_msgs_generate_messages_lisp"
-	@echo "... geometry_msgs_generate_messages_eus"
 	@echo "... geometry_msgs_generate_messages_cpp"
+	@echo "... geometry_msgs_generate_messages_nodejs"
+	@echo "... console"
+	@echo "... pub_twist"
+	@echo "... test"
+	@echo "... edit_cache"
+	@echo "... rebuild_cache"
+	@echo "... list_install_components"
+	@echo "... geometry_msgs_generate_messages_lisp"
+	@echo "... install"
+	@echo "... geometry_msgs_generate_messages_eus"
+	@echo "... install/local"
+	@echo "... src/console.o"
+	@echo "... src/console.i"
+	@echo "... src/console.s"
 	@echo "... src/pub_twist.o"
 	@echo "... src/pub_twist.i"
 	@echo "... src/pub_twist.s"
