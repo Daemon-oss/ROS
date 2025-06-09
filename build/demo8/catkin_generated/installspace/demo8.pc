@@ -1,0 +1,8 @@
+prefix=/home/wex/ros_ws/install
+
+Name: demo8
+Description: Description of demo8
+Version: 0.0.0
+Cflags: -I${prefix}/include
+Libs: -L${prefix}/lib 
+Requires: 

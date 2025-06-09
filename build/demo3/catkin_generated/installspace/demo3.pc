@@ -1,0 +1,8 @@
+prefix=/home/wex/ros_ws/install
+
+Name: demo3
+Description: Description of demo3
+Version: 0.0.0
+Cflags: 
+Libs: -L${prefix}/lib 
+Requires: 

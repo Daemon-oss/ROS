@@ -1,0 +1,2 @@
+set(demo7_MESSAGE_FILES "/home/wex/ros_ws/devel/share/demo7/msg/AddIntsAction.msg;/home/wex/ros_ws/devel/share/demo7/msg/AddIntsActionGoal.msg;/home/wex/ros_ws/devel/share/demo7/msg/AddIntsActionResult.msg;/home/wex/ros_ws/devel/share/demo7/msg/AddIntsActionFeedback.msg;/home/wex/ros_ws/devel/share/demo7/msg/AddIntsGoal.msg;/home/wex/ros_ws/devel/share/demo7/msg/AddIntsResult.msg;/home/wex/ros_ws/devel/share/demo7/msg/AddIntsFeedback.msg")
+set(demo7_SERVICE_FILES "")
